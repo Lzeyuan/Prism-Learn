@@ -3,6 +3,7 @@ using Prism.Mvvm;
 using Prism.Regions;
 using Prism_Learn.Models;
 using System.Collections.ObjectModel;
+using System.Windows.Controls.Primitives;
 
 namespace Prism_Learn.ViewModels {
     public class MainViewModel : BindableBase {

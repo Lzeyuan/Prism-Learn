@@ -16,7 +16,7 @@
         TextOptions.TextRenderingMode="Auto"
         AllowsTransparency="True"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
+        FontFamily="微软雅黑"
         Style="{StaticResource MaterialDesignWindow}"
         mc:Ignorable="d"
         WindowStyle="None"
