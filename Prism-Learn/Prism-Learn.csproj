@@ -10,6 +10,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Image\ic_dyebin_absolute_alcohol.png" />
+	  <None Remove="Image\ic_dyebin_buffer.png" />
+	  <None Remove="Image\ic_dyebin_eaog.png" />
+	  <None Remove="Image\ic_dyebin_hematoxylin.png" />
+	  <None Remove="Image\ic_dyebin_load_sample.png" />
+	  <None Remove="Image\ic_dyebin_pressed.png" />
+	  <None Remove="Image\ic_dyebin_subside.png" />
 	  <None Remove="Image\ic_head.png" />
 	</ItemGroup>
 
@@ -20,6 +27,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Resource Include="Image\ic_dyebin_absolute_alcohol.png" />
+	  <Resource Include="Image\ic_dyebin_buffer.png" />
+	  <Resource Include="Image\ic_dyebin_eaog.png" />
+	  <Resource Include="Image\ic_dyebin_hematoxylin.png" />
+	  <Resource Include="Image\ic_dyebin_load_sample.png" />
+	  <Resource Include="Image\ic_dyebin_pressed.png" />
+	  <Resource Include="Image\ic_dyebin_subside.png" />
 	  <Resource Include="Image\ic_head.png" />
 	</ItemGroup>
 

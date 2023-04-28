@@ -4,10 +4,176 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Prism_Learn.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:LocalModel="clr-namespace:Prism_Learn.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <LocalModel:AddOneConverter x:Key="AddOneConverter" />
+        <Style x:Key="TipsTextBlock"
+               TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="10" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+        </Style>
+
+        <Style x:Key="TipsBorder"
+               TargetType="Border">
+            <Setter Property="Width"
+                    Value="12" />
+            <Setter Property="Height"
+                    Value="12" />
+            <Setter Property="CornerRadius"
+                    Value="6" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="#E6E6E6" />
+        </Style>
+
+        <Style x:Key="TipsStackPanel"
+               TargetType="StackPanel">
+            <Setter Property="Margin"
+                    Value="4 0" />
+        </Style>
+
+    </UserControl.Resources>
     <Grid>
-        <TextBlock Text="Setting"
-                   FontSize="80" />
+        <StackPanel>
+            <Border Margin="16"
+                    Width="388"
+                    Height="400"
+                    Background="White">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="36" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border Background="#f9f9f9">
+                        <TextBlock Margin="8"
+                                   VerticalAlignment="Center"
+                                   FontSize="14"
+                                   Text="染色仓"
+                                   FontWeight="Bold"
+                                   Foreground="#FF333333" />
+                    </Border>
+                    <ItemsControl Margin="24 12 24 0"
+                                  Grid.Row="1"
+                                  ItemsSource="{Binding DyeBinDtos}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid  Columns="6"
+                                              Rows="5">
+                                </UniformGrid>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="4"
+                                        Width="48"
+                                        Height="48"
+                                        BorderBrush="#19000000"
+                                        BorderThickness="1"
+                                        Background="{Binding BackgroundColor}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition Height="14" />
+                                        </Grid.RowDefinitions>
+                                        <Image Visibility="{Binding Show, Mode=OneWay}"
+                                               Source="{Binding Image}"
+                                               Width="26" />
+                                        <Border Grid.Row="1"
+                                                Background="#cccccc">
+                                            <TextBlock FontSize="12"
+                                                       FontWeight="Bold"
+                                                       Text="{Binding Number, Mode=OneWay, Converter={StaticResource AddOneConverter}}"
+                                                       TextAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       Foreground="White" />
+                                        </Border>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <StackPanel Margin="0 18" Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <StackPanel Style="{StaticResource TipsStackPanel}" Orientation="Vertical">
+                            <Border Width="12"
+                                    Height="12"
+                                    CornerRadius="1"
+                                    Background="#cccccc"/>
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="空位" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}" Orientation="Vertical">
+                            <Border Width="12"
+                                    Height="12"
+                                    CornerRadius="1"
+                                    BorderThickness="1"
+                                    BorderBrush="#e6e6e6"
+                                    Background="#ffffff" />
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="有玻片" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}"
+                                    Orientation="Vertical">
+                            <Image Width="12"
+                                   Height="12"
+                                   Source="/Image/ic_dyebin_pressed.png" />
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="压紧" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}"
+                                    Orientation="Vertical">
+                            <Border Style="{StaticResource TipsBorder}"
+                                    Background="#009900" />
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="沉降" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}"
+                                    Orientation="Vertical">
+                            <Border Style="{StaticResource TipsBorder}"
+                                    Background="#ffff66" />
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="转移样本" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}"
+                                    Orientation="Vertical">
+                            <Border Style="{StaticResource TipsBorder}"
+                                    Background="#0491ff" />
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="苏木素" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}"
+                                    Orientation="Vertical">
+                            <Border Style="{StaticResource TipsBorder}"
+                                    Background="#f57365" />
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="EA/OG" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}"
+                                    Orientation="Vertical">
+                            <Border Style="{StaticResource TipsBorder}"
+                                    Background="#7ec8eb" />
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="缓冲液" />
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource TipsStackPanel}"
+                                    Orientation="Vertical">
+                            <Border Style="{StaticResource TipsBorder}"
+                                    Background="#fad260" /> 
+                            <TextBlock Style="{StaticResource TipsTextBlock}"
+                                       Text="无水乙醇" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Button Content="Button"
+                    Command="{Binding TestClick}" />
+        </StackPanel>
     </Grid>
 </UserControl>
